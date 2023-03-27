@@ -1,0 +1,23 @@
+{
+  "name": "ocho-app",
+  "version": "1.0.0",
+  "description": "OCHO is a web application that allows users to create custom top 8 lists to showcase their interests and likes. The app is built using the MERN stack, which includes MongoDB, Express, React, and Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hekmaflo/ocho-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hekmaflo/ocho-app/issues"
+  },
+  "homepage": "https://github.com/hekmaflo/ocho-app#readme",
+  "dependencies": {
+    "mongoose": "^7.0.3"
+  }
+}
