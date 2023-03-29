@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const List = require("../models/list");
+const Item = require("../models/item");
 
 const createUser = async (req, res) => {
   try {
@@ -51,10 +53,135 @@ const deleteUser = async (req, res) => {
   }
 };
 
+//Lists
+
+const getLists = async (req, res) => {
+  try {
+    const lists = await List.find();
+    res.json(lists);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getListById = async (req, res) => {
+  try {
+    const list = await List.findById(req.params.id).populate("items");
+    if (list == null) {
+      return res.status(404).json({ message: "List not found" });
+    }
+    res.json(list);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const createList = async (req, res) => {
+  const list = new List({
+    title: req.body.title,
+    description: req.body.description,
+    user: req.body.user,
+    items: req.body.items,
+  });
+  try {
+    const newList = await list.save();
+    res.status(201).json(newList);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+const updateList = async (req, res) => {
+  try {
+    const updatedList = await List.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.json(updatedList);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+const deleteList = async (req, res) => {
+  try {
+    await List.findByIdAndDelete(req.params.id);
+    res.json({ message: "List deleted" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+//Items
+
+const getItems = async (req, res) => {
+  try {
+    const items = await Item.find();
+    res.json(items);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getItemById = async (req, res) => {
+  try {
+    const item = await Item.findById(req.params.id);
+    if (item == null) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+    res.json(item);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const createItem = async (req, res) => {
+  const item = new Item({
+    title: req.body.title,
+    description: req.body.description,
+    image: req.body.image,
+  });
+  try {
+    const newItem = await item.save();
+    res.status(201).json(newItem);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+const updateItem = async (req, res) => {
+  try {
+    const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.json(updatedItem);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+const deleteItem = async (req, res) => {
+  try {
+    await Item.findByIdAndDelete(req.params.id);
+    res.json({ message: "Item deleted" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 module.exports = {
   createUser,
   getAllUsers,
   getUserById,
   updateUser,
   deleteUser,
+  getLists,
+  getListById,
+  createList,
+  updateList,
+  deleteList,
+  getItems,
+  getItemById,
+  createItem,
+  updateItem,
+  deleteItem,
 };
