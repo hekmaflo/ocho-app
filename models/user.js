@@ -3,12 +3,17 @@ const Schema = mongoose.Schema;
 
 const User = new Schema(
   {
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
+    name: { type: String, required: true },
     username: { type: String, required: true, lowercase: true },
     email: { type: String, required: true, lowercase: true },
     password: { type: String, required: true, minlength: 6 },
     profile: { type: SchemaType.ObjectId, ref: "Profile" },
+    lists: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "List",
+      },
+    ],
   },
   { timestamps: true }
 );
