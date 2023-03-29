@@ -6,7 +6,7 @@ const Profile = new Schema(
     profileTitle: { type: String, required: true },
     userBio: { type: String, required: false },
     image: { type: String, required: true },
-    user_id: { type: Schema.Types.ObjectId, ref: "user_id" },
+    user_id: { type: Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );

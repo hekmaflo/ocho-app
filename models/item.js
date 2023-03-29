@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const Item = new Schema({
   item: { type: String, required: true },
-  description: { type: String, required: true },
-  image: { type: String, required: true },
+  description: { type: String, required: false },
+  image: { type: String, required: false },
   url: { type: String, required: false },
-  list_id: { type: Schema.Types.ObjectId, ref: "list_id" },
 });
+
+module.exports = mongoose.model("Item", Item);
