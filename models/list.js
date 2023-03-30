@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const List = new Schema({
-  listname: { type: String, required: true },
+  title: { type: String, required: true },
   description: { type: String, required: true },
+  user: { type: Schema.Types.ObjectId, ref: "User" },
   items: [{ type: Schema.Types.ObjectId, ref: "Item" }],
 });
 

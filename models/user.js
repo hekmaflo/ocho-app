@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const User = new Schema(
   {
     name: { type: String, required: true },
-    username: { type: String, required: true, lowercase: true },
-    email: { type: String, required: true, lowercase: true },
+    username: { type: String, required: true, lowercase: true, unique: true },
+    email: { type: String, required: true, lowercase: true, unique: true },
     password: { type: String, required: true, minlength: 6 },
-    profile: { type: SchemaType.ObjectId, ref: "Profile" },
+    // profile: { type: SchemaType.ObjectId, ref: "Profile" },
     lists: [
       {
         type: mongoose.Schema.Types.ObjectId,

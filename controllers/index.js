@@ -3,21 +3,46 @@ const List = require("../models/list");
 const Item = require("../models/item");
 
 const createUser = async (req, res) => {
+  const user = new User({
+    name: req.body.name,
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+  });
   try {
-    const user = await new User(req.body);
-    await user.save();
-    return res.status(201).json({ user });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
+    const newUser = await user.save();
+    res.status(201).json(newUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+const loginUser = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(401).json({ message: "Invalid username or password" });
+    }
+
+    if (user.password !== password) {
+      return res.status(401).json({ message: "Invalid username or password" });
+    }
+
+    res.status(200).json({ message: "Login successful", user });
+    res.json(user._id);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 };
 
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
-    return res.status(200).json({ users });
-  } catch (error) {
-    return res.status(500).send(error.message);
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 };
 
@@ -139,6 +164,7 @@ const createItem = async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     image: req.body.image,
+    url: req.body.image,
   });
   try {
     const newItem = await item.save();
@@ -169,6 +195,7 @@ const deleteItem = async (req, res) => {
 };
 
 module.exports = {
+  loginUser,
   createUser,
   getAllUsers,
   getUserById,
