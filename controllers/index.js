@@ -31,7 +31,6 @@ const loginUser = async (req, res) => {
     }
 
     res.status(200).json({ message: "Login successful", user });
-    res.json(user._id);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -89,6 +88,19 @@ const getLists = async (req, res) => {
   }
 };
 
+const getListsByUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const lists = await List.find({ user: userId }).populate("items");
+    if (lists == null) {
+      return res.status(404).json({ message: "Lists not found" });
+    }
+    res.json(lists);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const getListById = async (req, res) => {
   try {
     const list = await List.findById(req.params.id).populate("items");
@@ -106,6 +118,23 @@ const createList = async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     user: req.body.user,
+    items: req.body.items,
+  });
+  try {
+    const newList = await list.save();
+    res.status(201).json(newList);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+const createListByUser = async (req, res) => {
+  const userId = req.params.userId;
+  const list = new List({
+    title: req.body.title,
+    description: req.body.description,
+    user: req.body.user,
+    // user: userId,
     items: req.body.items,
   });
   try {
@@ -197,6 +226,8 @@ const deleteItem = async (req, res) => {
 module.exports = {
   loginUser,
   createUser,
+  getListsByUser,
+  createListByUser,
   getAllUsers,
   getUserById,
   updateUser,
