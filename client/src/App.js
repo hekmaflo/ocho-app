@@ -16,7 +16,8 @@ function App() {
       <List /> */}
       <header className="App-header">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<SignIn />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/login" element={<SignIn />} />

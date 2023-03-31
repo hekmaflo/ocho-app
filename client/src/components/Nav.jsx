@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <>
       <div className="Nav-bar">
-        <NavLink to="/">
+        <NavLink to="/home">
           <img src={house} className="Nav-logo" alt="house" />
         </NavLink>
         <NavLink to="/profile">
