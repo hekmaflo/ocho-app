@@ -8,7 +8,7 @@ const UserRegister = () => {
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    // confirmPassword: "",
   });
 
   const navigate = useNavigate();
@@ -21,7 +21,8 @@ const UserRegister = () => {
     event.preventDefault();
 
     try {
-      await axios.post("/api/register", formValues);
+      await axios.post("http://localhost:3001/api/register", formValues);
+      setFormValues({ name: "", username: "", email: "", password: "" });
       navigate("/home");
     } catch (error) {
       console.error(error);
@@ -67,7 +68,7 @@ const UserRegister = () => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        {/* <div>
           <label>Confirm Password:</label>
           <input
             type="password"
@@ -75,7 +76,7 @@ const UserRegister = () => {
             value={formValues.confirmPassword}
             onChange={handleChange}
           />
-        </div>
+        </div> */}
       </div>
       <div>
         <button type="submit">Submit</button>
