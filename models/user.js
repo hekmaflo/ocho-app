@@ -10,7 +10,7 @@ const User = new Schema(
     // profile: { type: SchemaType.ObjectId, ref: "Profile" },
     lists: [
       {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "List",
       },
     ],

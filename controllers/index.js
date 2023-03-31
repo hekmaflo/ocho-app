@@ -8,8 +8,10 @@ const createUser = async (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
+    lists: [],
   });
   try {
+    // const exsistingUser = await User.findOne({ email });
     const newUser = await user.save();
     res.status(201).json(newUser);
   } catch (err) {
@@ -114,14 +116,21 @@ const getListById = async (req, res) => {
 };
 
 const createList = async (req, res) => {
+  const userId = req.params.userId;
   const list = new List({
     title: req.body.title,
     description: req.body.description,
-    user: req.body.user,
+    user: userId,
     items: req.body.items,
   });
   try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
     const newList = await list.save();
+    user.lists.push(newList._id);
+    await user.save();
     res.status(201).json(newList);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -176,6 +185,19 @@ const getItems = async (req, res) => {
   }
 };
 
+const getItemsByList = async (req, res) => {
+  try {
+    const listId = req.params.listId;
+    const items = await Item.find({ list: listId });
+    if (items == null) {
+      return res.status(404).json({ message: "Itmes not found" });
+    }
+    res.json(items);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const getItemById = async (req, res) => {
   try {
     const item = await Item.findById(req.params.id);
@@ -189,14 +211,22 @@ const getItemById = async (req, res) => {
 };
 
 const createItem = async (req, res) => {
+  const listId = req.params.listId;
   const item = new Item({
     title: req.body.title,
     description: req.body.description,
     image: req.body.image,
     url: req.body.image,
+    list: listId,
   });
   try {
+    const list = await List.findById(listId);
+    if (!list) {
+      return res.status(404).json({ message: "User not found" });
+    }
     const newItem = await item.save();
+    list.items.push(newItem._id);
+    await list.save();
     res.status(201).json(newItem);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -238,6 +268,7 @@ module.exports = {
   updateList,
   deleteList,
   getItems,
+  getItemsByList,
   getItemById,
   createItem,
   updateItem,

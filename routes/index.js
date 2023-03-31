@@ -19,8 +19,9 @@ router.put("/lists/:id", controllers.updateList);
 router.delete("/lists/:id", controllers.deleteList);
 
 router.get("/items", controllers.getItems);
+router.get("/items/list/:id", controllers.getItemsByList);
 router.get("/items/:id", controllers.getItemById);
-router.post("/items", controllers.createItem);
+router.post("/items/list/:listId", controllers.createItem);
 router.put("/items/:id", controllers.updateItem);
 router.delete("/items/:id", controllers.deleteItem);
 
