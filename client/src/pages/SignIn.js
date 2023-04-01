@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UserLogin from "../components/UserLogin";
 import UserRegister from "../components/UserRegister";
-const SignIn = () => {
+const SignIn = (props) => {
   const [isRegistered, setIsRegistered] = useState(true);
 
   const handleToggle = () => {
@@ -12,7 +12,7 @@ const SignIn = () => {
       {isRegistered ? (
         <>
           <h1>Sign In</h1>
-          <UserLogin />
+          <UserLogin setUser={props.setUser} />
           <button onClick={handleToggle}>Register</button>
         </>
       ) : (

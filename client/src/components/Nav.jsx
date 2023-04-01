@@ -2,17 +2,18 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import globe from "./assets/globe.png";
 import house from "./assets/house.png";
-import user from "./assets/user.png";
+import usericon from "./assets/user.png";
 import bullet from "./assets/bullet-list.png";
-const Nav = () => {
+const Nav = ({ user }) => {
   return (
     <>
       <div className="Nav-bar">
-        <NavLink to="/home">
+        <NavLink to={user ? `/home/${user._id}` : "/"}>
           <img src={house} className="Nav-logo" alt="house" />
         </NavLink>
-        <NavLink to="/profile">
-          <img src={user} className="Nav-logo" alt="user" />
+        {/* <NavLink to="/profile"> */}
+        <NavLink to={user ? `/profile/${user._id}` : "/"}>
+          <img src={usericon} className="Nav-logo" alt="user" />
         </NavLink>
         <NavLink to="explore">
           <img src={globe} className="Nav-logo" alt="globe" />

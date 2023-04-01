@@ -39,6 +39,7 @@ const UserRegister = () => {
             name="name"
             value={formValues.name}
             onChange={handleChange}
+            placeholder="Name"
           />
         </div>
         <div>
@@ -48,6 +49,7 @@ const UserRegister = () => {
             name="username"
             value={formValues.username}
             onChange={handleChange}
+            placeholder="User Name"
           />
         </div>
         <div>
@@ -57,6 +59,7 @@ const UserRegister = () => {
             name="email"
             value={formValues.email}
             onChange={handleChange}
+            placeholder="Email"
           />
         </div>
         <div>
@@ -66,6 +69,7 @@ const UserRegister = () => {
             name="password"
             value={formValues.password}
             onChange={handleChange}
+            placeholder="Password"
           />
         </div>
         {/* <div>
@@ -79,7 +83,17 @@ const UserRegister = () => {
         </div> */}
       </div>
       <div>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          disabled={
+            !formValues.email ||
+            !formValues.password ||
+            !formValues.username ||
+            !formValues.name
+          }
+        >
+          Submit
+        </button>
       </div>
     </form>
   );
