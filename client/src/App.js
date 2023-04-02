@@ -7,6 +7,7 @@ import Explore from "./pages/Explore";
 import SignIn from "./pages/SignIn";
 import List from "./components/List";
 import Nav from "./components/Nav";
+import ItemCreation from "./pages/ItemCreation";
 function App() {
   const [user, setUser] = useState(null);
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/login" element={<SignIn />} />
+          <Route path="/item/:id" element={<ItemCreation />} />
         </Routes>
       </header>
       <main></main>
