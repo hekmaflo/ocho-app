@@ -7,6 +7,7 @@ const Home = () => {
   const { id } = useParams();
 
   const [lists, setLists] = useState([]);
+  const [items, setItems] = useState([]);
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
@@ -16,6 +17,10 @@ const Home = () => {
           `http://localhost:3001/api/lists/user/${id}`
         );
         setLists(response.data);
+        const allItems = response.data.reduce((acc, list) => {
+          return [...acc, ...list.items];
+        }, []);
+        setItems(allItems);
       } catch (error) {
         console.error(error);
       }
@@ -35,6 +40,16 @@ const Home = () => {
       console.error(error);
     }
   };
+
+  const handleDeleteItem = async (ItemId) => {
+    try {
+      await axios.delete(`http://localhost:3001/api/items/${ItemId}`);
+      setItems(items.filter((item) => item._id !== ItemId));
+      handleToggle();
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       <h1>Home</h1>
@@ -48,7 +63,20 @@ const Home = () => {
             <div key={list._id}>
               <h3>{list.title}</h3>
               <p>{list.description}</p>
-              <button onClick={() => handleDeleteList(list._id)}>delete</button>
+              <ul>
+                {list.items.map((item) => (
+                  <div key={item._id}>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <button onClick={() => handleDeleteItem(item._id)}>
+                      delete item
+                    </button>
+                  </div>
+                ))}
+              </ul>
+              <button onClick={() => handleDeleteList(list._id)}>
+                delete list
+              </button>
               <Link to={`/item/${list._id}`}>
                 <button>Add Item</button>
               </Link>

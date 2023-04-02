@@ -28,11 +28,13 @@ const List = (props) => {
             <p>{list.description}</p>
             <ul>
               {list.items.map((item) => (
-                <li key={item._id}>{item.title}</li>
+                <div key={item._id}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
               ))}
             </ul>
           </div>
-          <TopItems listId={list._id} />
         </div>
       ))}
     </div>
