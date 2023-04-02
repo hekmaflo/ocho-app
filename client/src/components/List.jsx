@@ -22,18 +22,19 @@ const List = (props) => {
   return (
     <div>
       {lists.map((list) => (
-        <div className="List-grid-container" key={list._id}>
+        <div key={list._id}>
           <div>
             <h3>{list.title}</h3>
             <p>{list.description}</p>
-            <ul>
+
+            <div className="List-grid-container">
               {list.items.map((item) => (
-                <div key={item._id}>
+                <div className="Top-item-container" key={item._id}>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       ))}

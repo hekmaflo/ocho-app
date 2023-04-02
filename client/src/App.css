@@ -42,23 +42,25 @@
 }
 
 .List-grid-container {
-  display: inline-grid;
-  grid-template-columns: auto auto auto auto;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   background-color: #2196f3;
   padding: 10px;
   width: 95%;
-  height: 30%;
+  height: auto;
   margin: 10px;
 }
 
 .Top-item-container {
+  flex: 0 0 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 30em;
   margin: 2px;
   background-color: burlywood;
-  height: 250px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

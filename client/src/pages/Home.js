@@ -67,7 +67,7 @@ const Home = () => {
                 {list.items.map((item) => (
                   <div key={item._id}>
                     <h3>{item.title}</h3>
-                    <p>{item.description}</p>
+                    {/* <p>{item.description}</p> */}
                     <button onClick={() => handleDeleteItem(item._id)}>
                       delete item
                     </button>
