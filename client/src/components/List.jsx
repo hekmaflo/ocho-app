@@ -32,7 +32,7 @@ const List = (props) => {
               ))}
             </ul>
           </div>
-          <TopItems items={list.items} />
+          <TopItems listId={list._id} />
         </div>
       ))}
     </div>
