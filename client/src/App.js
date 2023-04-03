@@ -10,6 +10,8 @@ import Nav from "./components/Nav";
 import ItemCreation from "./pages/ItemCreation";
 import ImageUpload from "./pages/ImageUpload";
 import ListEdit from "./pages/ListEdit";
+import AboutUser from "./pages/AboutUser";
+
 function App() {
   const [user, setUser] = useState(null);
   return (
@@ -23,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignIn setUser={setUser} />} />
           <Route path="/home/:id" element={<Home />} />
+          <Route path="/aboutuser/:id" element={<AboutUser />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/login" element={<SignIn />} />

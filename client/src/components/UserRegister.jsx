@@ -30,11 +30,12 @@ const UserRegister = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="List-input-container">
       <div>
         <div>
-          <label>Name:</label>
+          {/* <label>Name:</label> */}
           <input
+            className="List-input"
             type="text"
             name="name"
             value={formValues.name}
@@ -43,8 +44,9 @@ const UserRegister = () => {
           />
         </div>
         <div>
-          <label>User Name:</label>
+          {/* <label>User Name:</label> */}
           <input
+            className="List-input"
             type="text"
             name="username"
             value={formValues.username}
@@ -53,8 +55,9 @@ const UserRegister = () => {
           />
         </div>
         <div>
-          <label>Email:</label>
+          {/* <label>Email:</label> */}
           <input
+            className="List-input"
             type="email"
             name="email"
             value={formValues.email}
@@ -63,8 +66,9 @@ const UserRegister = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          {/* <label>Password:</label> */}
           <input
+            className="List-input"
             type="password"
             name="password"
             value={formValues.password}
@@ -84,6 +88,7 @@ const UserRegister = () => {
       </div>
       <div>
         <button
+          className="List-input-button"
           type="submit"
           disabled={
             !formValues.email ||

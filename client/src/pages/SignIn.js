@@ -13,13 +13,17 @@ const SignIn = (props) => {
         <>
           <h1>Sign In</h1>
           <UserLogin setUser={props.setUser} />
-          <button onClick={handleToggle}>Register</button>
+          <button className="List-input-button" onClick={handleToggle}>
+            Register
+          </button>
         </>
       ) : (
         <>
           <h1>Register</h1>
           <UserRegister />
-          <button onClick={handleToggle}>Login</button>
+          <button className="List-input-button" onClick={handleToggle}>
+            Login
+          </button>
         </>
       )}
     </>

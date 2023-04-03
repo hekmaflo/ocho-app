@@ -18,8 +18,9 @@ const Nav = ({ user }) => {
         <NavLink to="explore">
           <img src={globe} className="Nav-logo" alt="globe" />
         </NavLink>
-
-        <img src={bullet} className="Nav-logo" alt="list" />
+        <NavLink to={user ? `/aboutuser/${user._id}` : "/"}>
+          <img src={bullet} className="Nav-logo" alt="list" />
+        </NavLink>
       </div>
     </>
   );

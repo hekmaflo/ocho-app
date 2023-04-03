@@ -104,10 +104,12 @@ const Home = () => {
                   </div>
                 </div>
               ))}
-              <div className="List-editor">
+              <div className="Add-item">
                 <div>
                   <Link to={`/item/${list._id}`}>
-                    <button className="List-editor-button">Add Item</button>
+                    <button className="List-input-button">
+                      <h1 className="Add-item-text">+</h1>
+                    </button>
                   </Link>
                 </div>
               </div>

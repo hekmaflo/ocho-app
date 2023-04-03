@@ -33,11 +33,12 @@ const UserLogin = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="List-input-container">
       <div>
         <div>
-          <label>Email:</label>
+          {/* <label>Email:</label> */}
           <input
+            className="List-input"
             type="email"
             name="email"
             value={formValues.email}
@@ -46,8 +47,9 @@ const UserLogin = (props) => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          {/* <label>Password:</label> */}
           <input
+            className="List-input"
             type="password"
             name="password"
             value={formValues.password}
@@ -57,7 +59,9 @@ const UserLogin = (props) => {
         </div>
       </div>
       <div>
-        <button type="submit">Log In</button>
+        <button className="List-input-button" type="submit">
+          Log In
+        </button>
       </div>
     </form>
   );

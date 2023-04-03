@@ -165,6 +165,37 @@
   border-style: none;
 }
 
+.Add-item {
+  flex: 0 0 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 10em;
+  margin: 2px;
+  border-radius: 10px;
+  background-color: rgb(53, 53, 53);
+  box-shadow: 0.6em 0.6em 0.2em;
+}
+
+.Add-item-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin: 4px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: gold;
+  text-decoration: none;
+  box-shadow: 0.3em 0.3em 0.1em;
+}
+
+.Add-item-text {
+  text-decoration: none;
+}
+
 .List-editor {
   flex: 0 0 150px;
   display: flex;
