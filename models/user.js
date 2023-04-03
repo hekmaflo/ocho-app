@@ -7,6 +7,8 @@ const User = new Schema(
     username: { type: String, required: true, lowercase: true, unique: true },
     email: { type: String, required: true, lowercase: true, unique: true },
     password: { type: String, required: true, minlength: 6 },
+    description: { type: String, required: false },
+    image: { type: String, required: false },
     // profile: { type: SchemaType.ObjectId, ref: "Profile" },
     lists: [
       {
