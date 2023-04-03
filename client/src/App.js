@@ -9,6 +9,7 @@ import List from "./components/List";
 import Nav from "./components/Nav";
 import ItemCreation from "./pages/ItemCreation";
 import ImageUpload from "./pages/ImageUpload";
+import ListEdit from "./pages/ListEdit";
 function App() {
   const [user, setUser] = useState(null);
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/login" element={<SignIn />} />
           <Route path="/item/:id" element={<ItemCreation />} />
           <Route path="/upload/:id" element={<ImageUpload />} />
+          <Route path="/list/:id" element={<ListEdit />} />
         </Routes>
       </header>
       <main></main>

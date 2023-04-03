@@ -30,7 +30,7 @@
   flex-direction: row;
   height: 6.5vmin;
   width: 100%;
-  background-color: blueviolet;
+  background-color: rgb(162, 226, 43);
 }
 .Nav-logo {
   height: 6vmin;
@@ -58,11 +58,26 @@
 }
 
 .List-input {
-  background-color: #282c34;
-  border-radius: 15px;
+  background-color: #3d4048;
+  border-radius: 10px;
   width: 95%;
   height: 45px;
   margin: 10px;
+  padding-left: 20px;
+  border-style: none;
+}
+
+.List-input-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin: 4px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: gold;
+  box-shadow: 0.3em 0.3em 0.1em;
 }
 
 .user-part {
@@ -73,11 +88,23 @@
   width: 100%;
 }
 
+.Top-item-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-color: aliceblue;
+  width: 30%;
+  border-radius: 10px;
+}
+
 .List-grid-container {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  background-color: #2196f3;
+  /* background-color: #2196f3; */
   padding: 10px;
   width: 95%;
   height: auto;
@@ -88,11 +115,14 @@
   flex: 0 0 300px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   flex-direction: column;
+  background-position: center;
   height: 30em;
   margin: 2px;
-  background-color: burlywood;
+  border-style: solid;
+  border-color: aliceblue;
+  background-color: rgb(41, 41, 41);
 }
 
 .List-grid-container-home {
@@ -103,7 +133,7 @@
   border-style: solid;
   padding: 10px;
   width: 95%;
-  height: 140px;
+  height: 180px;
   margin: 10px;
 }
 
@@ -111,11 +141,28 @@
   flex: 0 0 150px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
-  height: 8em;
+  height: 10em;
   margin: 2px;
-  background-color: burlywood;
+  background-color: rgb(135, 222, 141);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0.6em 0.6em 0.2em;
+}
+
+.item-title-home {
+  background-color: black;
+  color: azure;
+  margin-top: 5px;
+  padding: 0;
+}
+
+.item-button-home {
+  margin-top: 80px;
+  border-radius: 10px;
+  border-style: none;
 }
 
 .List-editor {
@@ -124,13 +171,28 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 8em;
+  height: 10em;
   margin: 2px;
-  background-color: rgb(88, 52, 5);
+  border-radius: 10px;
+  background-color: rgb(130, 189, 2);
+  box-shadow: 0.6em 0.6em 0.2em;
+}
+
+.List-editor-button {
+  width: 50px;
+  height: 50px;
+  margin: 4px;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: 0.3em 0.3em 0.1em;
 }
 
 .list-img-profile {
   width: 100px;
+}
+
+.list-img-home {
+  width: 70px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

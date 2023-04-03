@@ -24,19 +24,27 @@ const List = (props) => {
       {lists.map((list) => (
         <div key={list._id}>
           <div>
-            <h3>{list.title}</h3>
-            <p>{list.description}</p>
+            <div className="Top-item-tile">
+              <h3>{list.title}</h3>
+              <p>{list.description}</p>
+            </div>
 
             <div className="List-grid-container">
               {list.items.map((item) => (
-                <div className="Top-item-container" key={item._id}>
+                <div
+                  className="Top-item-container"
+                  key={item._id}
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                  }}
+                >
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  <img
+                  {/* <img
                     className="list-img-profile"
                     src={item.image}
                     alt="moco"
-                  />
+                  /> */}
                 </div>
               ))}
             </div>

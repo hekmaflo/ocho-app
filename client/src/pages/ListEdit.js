@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const ListInput = (props) => {
+const ListEdit = (props) => {
+  const { id } = useParams();
+
   const [formValues, setFormValues] = useState({
     title: "",
     description: "",
   });
 
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -18,15 +21,15 @@ const ListInput = (props) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        `http://localhost:3001/api/lists/user/${props.userId}`,
+      const response = await axios.put(
+        `http://localhost:3001/api/lists/${id}`,
         formValues
       );
       const user = response.data.user;
       const userId = user._id;
       setFormValues({ title: "", description: "" });
-      props.handleToggle();
-      //   navigate(`/home/${props.userId}`);
+      //   props.handleToggle();
+      navigate(-1);
       //   props.setUser(user);
     } catch (error) {
       console.error(error);
@@ -63,4 +66,4 @@ const ListInput = (props) => {
   );
 };
 
-export default ListInput;
+export default ListEdit;

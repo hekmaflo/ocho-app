@@ -68,29 +68,49 @@ const Home = () => {
                 {/* <p>{list.description}</p> */}
 
                 <div>
-                  <button onClick={() => handleDeleteList(list._id)}>
+                  <button
+                    className="List-editor-button"
+                    onClick={() => handleDeleteList(list._id)}
+                  >
                     delete list
                   </button>
-                  <Link to={`/item/${list._id}`}>
-                    <button>Add Item</button>
-                  </Link>
-                  <Link to={`/upload/${list._id}`}>
-                    <button>image upload</button>
+                  {/* <Link to={`/item/${list._id}`}>
+                    <button className="List-editor-button">Add Item</button>
+                  </Link> */}
+                  <Link to={`/list/${list._id}`}>
+                    <button className="List-editor-button">Edit List</button>
                   </Link>
                 </div>
               </div>
 
               {list.items.map((item) => (
-                <div key={item._id} className="Top-item-container-home">
-                  <h3>{item.title}</h3>
+                <div
+                  key={item._id}
+                  className="Top-item-container-home"
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                  }}
+                >
+                  <h3 className="item-title-home">{item.title}</h3>
+                  {/* <img className="list-img-home" src={item.image} alt="moco" /> */}
                   {/* <p>{item.description}</p> */}
                   <div>
-                    <button onClick={() => handleDeleteItem(item._id)}>
+                    <button
+                      className="item-button-home"
+                      onClick={() => handleDeleteItem(item._id)}
+                    >
                       delete item
                     </button>
                   </div>
                 </div>
               ))}
+              <div className="List-editor">
+                <div>
+                  <Link to={`/item/${list._id}`}>
+                    <button className="List-editor-button">Add Item</button>
+                  </Link>
+                </div>
+              </div>
             </div>
           ))}
         </div>
