@@ -24,11 +24,12 @@ const Upload = (props) => {
   const handleSubmitFile = (e) => {
     e.preventDefault();
     if (!previewSource) return;
-    uploadImage(previewSource);
+    uploadImage(previewSource, id);
   };
 
   const uploadImage = async (base64EncodedImage, id) => {
     try {
+      console.log(id);
       const response = await axios.post(
         `http://localhost:3001/api/items/list/${id}`,
         { image: base64EncodedImage }

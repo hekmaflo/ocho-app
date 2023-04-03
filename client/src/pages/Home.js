@@ -74,6 +74,9 @@ const Home = () => {
                   <Link to={`/item/${list._id}`}>
                     <button>Add Item</button>
                   </Link>
+                  <Link to={`/upload/${list._id}`}>
+                    <button>image upload</button>
+                  </Link>
                 </div>
               </div>
 

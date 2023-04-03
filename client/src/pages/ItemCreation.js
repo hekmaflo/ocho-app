@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import Upload from "../components/Upload";
 
 const ItemCreation = () => {
   const { id } = useParams();
@@ -13,10 +12,26 @@ const ItemCreation = () => {
     url: "",
   });
 
-  //   const navigate = useNavigate();
+  const [imageSelected, setImageSelected] = useState("");
+  const [uploadUrl, setUploadUrl] = useState("");
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const uploadImage = () => {
+    console.log(imageSelected);
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+    formData.append("upload_preset", "ps0hcf1m");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/diontizpt/image/upload", formData)
+      .then((response) => {
+        setUploadUrl(response.data.secure_url);
+        console.log(uploadUrl);
+        setFormValues({ ...formValues, image: response.data.secure_url });
+      });
   };
 
   const handleSubmit = async (event) => {
@@ -28,20 +43,16 @@ const ItemCreation = () => {
         formValues
       );
       const user = response.data.user;
-      // const userId = user._id;
       setFormValues({ title: "", description: "", image: "", url: "" });
-
-      //   navigate(`/home/${props.userId}`);
-      //   props.setUser(user);
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <>
       <h1>Item Creation:</h1>
       <h3>Upload</h3>
-      <Upload listId={id} />
       <form onSubmit={handleSubmit}>
         <div>
           <div>
@@ -70,10 +81,15 @@ const ItemCreation = () => {
               <input
                 type="file"
                 name="image"
-                value={formValues.image}
-                onChange={handleChange}
+                value=""
+                onChange={(event) => {
+                  setImageSelected(event.target.files[0]);
+                }}
                 placeholder="image url"
               />
+              <button type="button" onClick={uploadImage}>
+                Upload Image
+              </button>
             </form>
           </div>
           <div>
@@ -88,7 +104,7 @@ const ItemCreation = () => {
           </div>
         </div>
         <div>
-          <button type="submit">Creat List</button>
+          <button type="submit">Create List</button>
         </div>
       </form>
     </>

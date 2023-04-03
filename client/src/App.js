@@ -8,6 +8,7 @@ import SignIn from "./pages/SignIn";
 import List from "./components/List";
 import Nav from "./components/Nav";
 import ItemCreation from "./pages/ItemCreation";
+import ImageUpload from "./pages/ImageUpload";
 function App() {
   const [user, setUser] = useState(null);
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/item/:id" element={<ItemCreation />} />
+          <Route path="/upload/:id" element={<ImageUpload />} />
         </Routes>
       </header>
       <main></main>

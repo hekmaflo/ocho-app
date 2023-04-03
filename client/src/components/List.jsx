@@ -32,6 +32,11 @@ const List = (props) => {
                 <div className="Top-item-container" key={item._id}>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
+                  <img
+                    className="list-img-profile"
+                    src={item.image}
+                    alt="moco"
+                  />
                 </div>
               ))}
             </div>
