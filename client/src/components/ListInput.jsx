@@ -33,36 +33,31 @@ const ListInput = (props) => {
     }
   };
   return (
-    <>
+    <form onSubmit={handleSubmit} className="List-input-container">
       <h1>List Form:</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div>
-            <label>Title:</label>
-            <input
-              type="title"
-              name="title"
-              value={formValues.title}
-              onChange={handleChange}
-              placeholder="Name your list"
-            />
-          </div>
-          <div>
-            <label>Decription:</label>
-            <input
-              type="description"
-              name="description"
-              value={formValues.description}
-              onChange={handleChange}
-              placeholder="Describe your list"
-            />
-          </div>
-        </div>
-        <div>
-          <button type="submit">Creat List</button>
-        </div>
-      </form>
-    </>
+
+      {/* <label>Title:</label> */}
+      <input
+        className="List-input"
+        type="title"
+        name="title"
+        value={formValues.title}
+        onChange={handleChange}
+        placeholder="Name your list"
+      />
+
+      {/* <label>Decription:</label> */}
+      <input
+        className="List-input"
+        type="description"
+        name="description"
+        value={formValues.description}
+        onChange={handleChange}
+        placeholder="Describe your list"
+      />
+
+      <button type="submit">Creat List</button>
+    </form>
   );
 };
 

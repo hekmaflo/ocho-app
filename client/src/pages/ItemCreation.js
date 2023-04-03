@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Upload from "../components/Upload";
 
 const ItemCreation = () => {
   const { id } = useParams();
@@ -39,6 +40,8 @@ const ItemCreation = () => {
   return (
     <>
       <h1>Item Creation:</h1>
+      <h3>Upload</h3>
+      <Upload listId={id} />
       <form onSubmit={handleSubmit}>
         <div>
           <div>
@@ -63,13 +66,15 @@ const ItemCreation = () => {
           </div>
           <div>
             <label>Image:</label>
-            <input
-              type="text"
-              name="image"
-              value={formValues.image}
-              onChange={handleChange}
-              placeholder="image url"
-            />
+            <form>
+              <input
+                type="file"
+                name="image"
+                value={formValues.image}
+                onChange={handleChange}
+                placeholder="image url"
+              />
+            </form>
           </div>
           <div>
             <label>URL:</label>

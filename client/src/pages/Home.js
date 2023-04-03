@@ -51,40 +51,48 @@ const Home = () => {
     }
   };
   return (
-    <>
-      <h1>Home</h1>
+    <div className="home">
       <div>
-        <h1>Welcome to the home page!</h1>
+        <div className="user-part">
+          <h1>Home</h1>
+          <h1>Welcome to the home page!</h1>
 
-        <ListInput userId={id} handleToggle={handleToggle} />
-        <p>Your user id is: {id}</p>
+          <ListInput userId={id} handleToggle={handleToggle} />
+          <p>Your user id is: {id}</p>
+        </div>
         <div>
           {lists.map((list) => (
-            <div key={list._id}>
-              <h3>{list.title}</h3>
-              <p>{list.description}</p>
-              <ul>
-                {list.items.map((item) => (
-                  <div key={item._id}>
-                    <h3>{item.title}</h3>
-                    {/* <p>{item.description}</p> */}
+            <div key={list._id} className="List-grid-container-home">
+              <div className="List-editor">
+                <h3>{list.title}</h3>
+                {/* <p>{list.description}</p> */}
+
+                <div>
+                  <button onClick={() => handleDeleteList(list._id)}>
+                    delete list
+                  </button>
+                  <Link to={`/item/${list._id}`}>
+                    <button>Add Item</button>
+                  </Link>
+                </div>
+              </div>
+
+              {list.items.map((item) => (
+                <div key={item._id} className="Top-item-container-home">
+                  <h3>{item.title}</h3>
+                  {/* <p>{item.description}</p> */}
+                  <div>
                     <button onClick={() => handleDeleteItem(item._id)}>
                       delete item
                     </button>
                   </div>
-                ))}
-              </ul>
-              <button onClick={() => handleDeleteList(list._id)}>
-                delete list
-              </button>
-              <Link to={`/item/${list._id}`}>
-                <button>Add Item</button>
-              </Link>
+                </div>
+              ))}
             </div>
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
