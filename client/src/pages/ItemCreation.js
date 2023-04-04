@@ -52,27 +52,28 @@ const ItemCreation = () => {
   return (
     <>
       <h1>Item Creation:</h1>
-      <h3>Upload</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <div>
-            <label>Title:</label>
+            {/* <label>Title:</label> */}
             <input
+              className="List-input"
               type="title"
               name="title"
               value={formValues.title}
               onChange={handleChange}
-              placeholder="Name your list"
+              placeholder="Name your item..."
             />
           </div>
           <div>
-            <label>Decription:</label>
+            {/* <label>Decription:</label> */}
             <input
+              className="List-input"
               type="description"
               name="description"
               value={formValues.description}
               onChange={handleChange}
-              placeholder="Describe your list"
+              placeholder="Describe your item..."
             />
           </div>
           <div>
@@ -93,18 +94,21 @@ const ItemCreation = () => {
             </form>
           </div>
           <div>
-            <label>URL:</label>
+            {/* <label>URL:</label> */}
             <input
+              className="List-input"
               type="url"
               name="url"
               value={formValues.url}
               onChange={handleChange}
-              placeholder="link your like"
+              placeholder="URL for more info..."
             />
           </div>
         </div>
         <div>
-          <button type="submit">Create List</button>
+          <button className="List-input-button-two" type="submit">
+            Create
+          </button>
         </div>
       </form>
     </>

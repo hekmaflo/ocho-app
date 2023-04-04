@@ -27,9 +27,9 @@ const Profile = () => {
         className="about-user-container"
         style={{ backgroundImage: `url(${background})` }}
       >
-        <h1>@{user.username}</h1>
-        <img className="list-img-profile" src={user.image} alt="moco" />
-        <h3>{user.description}</h3>
+        <h1 className="white-bg">@{user.username}</h1>
+        <img className="user-photo-container" src={user.image} alt="moco" />
+        <h3 className="white-bg">{user.description}</h3>
       </div>
       <List userId={id} />
     </div>

@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import ListInput from "../components/ListInput";
 import List from "../components/List";
 import axios from "axios";
+import trash from "../components/assets/trash.png";
+import pencil from "../components/assets/pencil.png";
 const Home = () => {
   const { id } = useParams();
 
@@ -85,13 +87,15 @@ const Home = () => {
                     className="List-editor-button"
                     onClick={() => handleDeleteList(list._id)}
                   >
-                    delete list
+                    <img src={trash} className="trash-logo" alt="list" />
                   </button>
                   {/* <Link to={`/item/${list._id}`}>
                     <button className="List-editor-button">Add Item</button>
                   </Link> */}
                   <Link to={`/list/${list._id}`}>
-                    <button className="List-editor-button">Edit List</button>
+                    <button className="List-editor-button">
+                      <img src={pencil} className="trash-logo" alt="list" />
+                    </button>
                   </Link>
                 </div>
               </div>
@@ -112,7 +116,7 @@ const Home = () => {
                       className="item-button-home"
                       onClick={() => handleDeleteItem(item._id)}
                     >
-                      delete item
+                      x
                     </button>
                   </div>
                 </div>

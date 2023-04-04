@@ -38,8 +38,10 @@ const List = (props) => {
                     backgroundImage: `url(${item.image})`,
                   }}
                 >
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  <div className="item-description">
+                    <h3 className="padding">{item.title}</h3>
+                    <p className="padding">{item.description}</p>
+                  </div>
                   {/* <img
                     className="list-img-profile"
                     src={item.image}
