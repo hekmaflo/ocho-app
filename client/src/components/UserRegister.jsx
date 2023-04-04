@@ -23,7 +23,8 @@ const UserRegister = () => {
     try {
       await axios.post("http://localhost:3001/api/register", formValues);
       setFormValues({ name: "", username: "", email: "", password: "" });
-      navigate("/home");
+      navigate("/");
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }
