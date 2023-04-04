@@ -54,8 +54,18 @@ const Home = () => {
     <div className="home">
       <div>
         <div className="user-part">
-          <h1>Home</h1>
-          <h1>Welcome to the home page!</h1>
+          <h1 className="home-title">Hola, here is your Homepage 👋</h1>
+          {/* <h3>
+            Stop scolling like a baboon and make social media more intentional.
+          </h3>
+          <h3>
+            We don't care about your 85+ photos from your vacation trip. Just
+            your top 8.
+          </h3>
+          <h3>
+            Showcase your life through Movies, Music, Books, Concerts, Colors,
+            Art, Trips...anything you find beautiful through your top 8.
+          </h3> */}
 
           <ListInput userId={id} handleToggle={handleToggle} />
           <p>Your user id is: {id}</p>

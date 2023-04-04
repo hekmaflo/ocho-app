@@ -34,7 +34,7 @@ const ListInput = (props) => {
   };
   return (
     <form onSubmit={handleSubmit} className="List-input-container">
-      <h1>List Form:</h1>
+      <h2 className="list-title">Create a top 8 category here:</h2>
 
       {/* <label>Title:</label> */}
       <input
@@ -43,7 +43,7 @@ const ListInput = (props) => {
         name="title"
         value={formValues.title}
         onChange={handleChange}
-        placeholder="Write a name for your list..."
+        placeholder="Write a name for your top 8 catergory..."
       />
 
       {/* <label>Decription:</label> */}

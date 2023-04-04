@@ -25,7 +25,7 @@ const List = (props) => {
         <div key={list._id}>
           <div>
             <div className="Top-item-tile">
-              <h3>{list.title}</h3>
+              <h2>{list.title}</h2>
               <p>{list.description}</p>
             </div>
 
