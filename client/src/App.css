@@ -250,6 +250,7 @@
   justify-content: end;
   flex-direction: column;
   background-position: center;
+  background-size: cover;
   height: 30em;
   margin: 10px;
   /* border-style: solid; */
