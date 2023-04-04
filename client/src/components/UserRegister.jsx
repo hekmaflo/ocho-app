@@ -30,7 +30,8 @@ const UserRegister = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="List-input-container">
+    <form onSubmit={handleSubmit} className="List-input-container-two">
+      <h1>Register</h1>
       <div>
         <div>
           {/* <label>Name:</label> */}
@@ -88,7 +89,7 @@ const UserRegister = () => {
       </div>
       <div>
         <button
-          className="List-input-button"
+          className="List-input-button-two"
           type="submit"
           disabled={
             !formValues.email ||

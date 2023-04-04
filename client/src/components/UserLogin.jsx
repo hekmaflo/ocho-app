@@ -33,7 +33,8 @@ const UserLogin = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="List-input-container">
+    <form onSubmit={handleSubmit} className="List-input-container-two">
+      <h1>Sign In</h1>
       <div>
         <div>
           {/* <label>Email:</label> */}
@@ -58,11 +59,10 @@ const UserLogin = (props) => {
           />
         </div>
       </div>
-      <div>
-        <button className="List-input-button" type="submit">
-          Log In
-        </button>
-      </div>
+
+      <button className="List-input-button-two" type="submit">
+        Log In
+      </button>
     </form>
   );
 };
