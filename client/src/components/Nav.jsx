@@ -4,6 +4,7 @@ import globe from "./assets/globe.png";
 import house from "./assets/house.png";
 import usericon from "./assets/user.png";
 import bullet from "./assets/bullet-list.png";
+import logout from "./assets/logout.png";
 const Nav = ({ user }) => {
   return (
     <>
@@ -23,7 +24,7 @@ const Nav = ({ user }) => {
         </NavLink>
         {user && (
           <NavLink to={"/"} style={{ marginLeft: "auto" }}>
-            <button>Logout</button>
+            <img src={logout} className="Nav-logo" alt="list" />
           </NavLink>
         )}
       </div>
