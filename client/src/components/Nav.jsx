@@ -21,6 +21,9 @@ const Nav = ({ user }) => {
         <NavLink to={user ? `/aboutuser/${user._id}` : "/"}>
           <img src={bullet} className="Nav-logo" alt="list" />
         </NavLink>
+        <NavLink to={"/"}>
+          <button>Logout</button>
+        </NavLink>
       </div>
     </>
   );
