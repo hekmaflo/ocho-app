@@ -30,7 +30,7 @@
   flex-direction: row;
   height: 6.5vmin;
   width: 100%;
-  background-color: rgb(162, 226, 43);
+  background-color: greenyellow;
   margin-bottom: 0;
 }
 .Nav-logo {
@@ -48,6 +48,51 @@
   justify-content: center;
   flex-direction: row;
   width: 100%;
+}
+
+.sign-in-container {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+}
+
+.about-us {
+  width: 35%;
+  text-align: center;
+}
+
+.ball-logo {
+  height: 7em;
+  top: 700px;
+  position: absolute;
+  right: 100%;
+  animation: ball-logo 4.5s ease-in-out infinite;
+}
+
+@keyframes ball-logo {
+  to {
+    right: -100px;
+    transform: rotate(360deg);
+  }
+}
+
+.sign-in-container-left {
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: rgb(130, 47, 255); */
+  width: 75%;
+}
+
+.sign-in-container-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  /* background-color: bisque; */
 }
 
 .List-input-container {
@@ -159,11 +204,18 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   background-color: #282c34;
-  border-style: solid;
+  /* border-style: solid; */
   padding: 10px;
   width: 95%;
   height: 180px;
   margin: 10px;
+}
+
+.manage-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .Top-item-container-home {
@@ -189,9 +241,19 @@
 }
 
 .item-button-home {
-  margin-top: 80px;
   border-radius: 10px;
   border-style: none;
+}
+
+.home-manage {
+  color: rgb(249, 249, 249);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100vw;
+  padding-left: 30px;
+  background-color: rgb(205, 45, 96);
+  text-shadow: #282c34;
 }
 
 .Add-item {
@@ -234,8 +296,9 @@
   height: 10em;
   margin: 2px;
   border-radius: 10px;
-  background-color: rgb(130, 189, 2);
-  box-shadow: 0.6em 0.6em 0.2em;
+  background-color: #282c34;
+  color: aliceblue;
+  text-align: center;
 }
 
 .List-editor-button {

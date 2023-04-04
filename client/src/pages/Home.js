@@ -68,9 +68,12 @@ const Home = () => {
           </h3> */}
 
           <ListInput userId={id} handleToggle={handleToggle} />
-          <p>Your user id is: {id}</p>
+          <div className="home-manage">
+            <h2>Manage categories</h2>
+          </div>
+          {/* <p>Your user id is: {id}</p> */}
         </div>
-        <div>
+        <div className="manage-container">
           {lists.map((list) => (
             <div key={list._id} className="List-grid-container-home">
               <div className="List-editor">
