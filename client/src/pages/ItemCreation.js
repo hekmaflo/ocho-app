@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const ItemCreation = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
     title: "",
@@ -44,6 +45,7 @@ const ItemCreation = () => {
       );
       const user = response.data.user;
       setFormValues({ title: "", description: "", image: "", url: "" });
+      navigate(-1);
     } catch (error) {
       console.error(error);
     }
