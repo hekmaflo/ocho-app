@@ -22,3 +22,35 @@ In addition to creating custom top 8 lists, OCHO also allows you to write a brie
 ## Contributing
 
 If you'd like to contribute to OCHO, please fork the repository and create a pull request. We welcome all contributions, big or small!
+
+---
+
+# Key Features
+
+<ul>
+<li>MongoDB</li>
+<li>Express</li>
+<li>React</li>
+<li>Node.js</li>
+</ul>
+
+---
+
+# Getting Started
+
+### start here by clicking below:
+
+🟢 [PANKO](https://panko.herokuapp.com)
+
+# Contributions
+
+Contributions are welcome! If you'd like to contribute to the development of Panko, please feel free to fork the repository and submit a pull request.
+
+### Images:
+
+✅[Google](https://www.google.com) | ✅[Imgur](https://i.imgur.com/EPrEq1m.jpg)
+
+### Assets:
+
+Icons - [NounProject](https://thenounproject.com/)
+| Backgorund - [Pexels](https://www.pexels.com/)
