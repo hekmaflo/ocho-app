@@ -4,7 +4,7 @@
 
 <!-- ![Image](https://i.imgur.com/EPrEq1m.jpg) -->
 <p align="center">
-<img src="https://i.imgur.com/yLAUBi3.png"  width="600">
+<img src="https://i.imgur.com/zWqIdLI.png"  width="600">
 </p>
 
 # ocho-app
