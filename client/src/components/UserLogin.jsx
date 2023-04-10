@@ -60,6 +60,9 @@ const UserLogin = (props) => {
       <button className="List-input-button-two" type="submit">
         Log In
       </button>
+      <h5>
+        Visitors can use: <br></br>guest@gmail.com <br></br> password: 123456
+      </h5>
     </form>
   );
 };
