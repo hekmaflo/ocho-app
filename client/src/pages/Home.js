@@ -15,9 +15,7 @@ const Home = () => {
   useEffect(() => {
     const getLists = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3001/api/lists/user/${id}`
-        );
+        const response = await axios.get(`/api/lists/user/${id}`);
         setLists(response.data);
         const allItems = response.data.reduce((acc, list) => {
           return [...acc, ...list.items];
@@ -36,7 +34,7 @@ const Home = () => {
 
   const handleDeleteList = async (listId) => {
     try {
-      await axios.delete(`http://localhost:3001/api/lists/${listId}`);
+      await axios.delete(`/api/lists/${listId}`);
       setLists(lists.filter((list) => list._id !== listId));
     } catch (error) {
       console.error(error);
@@ -45,7 +43,7 @@ const Home = () => {
 
   const handleDeleteItem = async (ItemId) => {
     try {
-      await axios.delete(`http://localhost:3001/api/items/${ItemId}`);
+      await axios.delete(`/api/items/${ItemId}`);
       setItems(items.filter((item) => item._id !== ItemId));
       handleToggle();
     } catch (error) {

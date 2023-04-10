@@ -19,7 +19,7 @@ const ListInput = (props) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3001/api/lists/user/${props.userId}`,
+        `/api/lists/user/${props.userId}`,
         formValues
       );
       const user = response.data.user;

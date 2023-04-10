@@ -39,10 +39,7 @@ const ItemCreation = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        `http://localhost:3001/api/items/list/${id}`,
-        formValues
-      );
+      const response = await axios.post(`/api/items/list/${id}`, formValues);
       const user = response.data.user;
       setFormValues({ title: "", description: "", image: "", url: "" });
       navigate(-1);

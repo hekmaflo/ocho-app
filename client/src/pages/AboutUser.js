@@ -23,7 +23,7 @@ const AboutUser = () => {
     event.preventDefault();
 
     try {
-      await axios.put(`http://localhost:3001/api/users/${id}`, formValues);
+      await axios.put(`/api/users/${id}`, formValues);
       setFormValues((prevState) => ({
         ...prevState,
         description: "",

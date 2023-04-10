@@ -21,10 +21,7 @@ const ListEdit = (props) => {
     event.preventDefault();
 
     try {
-      const response = await axios.put(
-        `http://localhost:3001/api/lists/${id}`,
-        formValues
-      );
+      const response = await axios.put(`/api/lists/${id}`, formValues);
       const user = response.data.user;
       const userId = user._id;
       setFormValues({ title: "", description: "" });

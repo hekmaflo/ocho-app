@@ -18,10 +18,7 @@ const UserLogin = (props) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:3001/api/login",
-        formValues
-      );
+      const response = await axios.post("/api/login", formValues);
       const user = response.data.user;
       const userId = user._id;
       setFormValues({ email: "", password: "" });

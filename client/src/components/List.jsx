@@ -8,9 +8,7 @@ const List = (props) => {
   useEffect(() => {
     const getLists = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3001/api/lists/user/${props.userId}`
-        );
+        const response = await axios.get(`/api/lists/user/${props.userId}`);
         setLists(response.data);
       } catch (error) {
         console.error(error);

@@ -30,10 +30,9 @@ const Upload = (props) => {
   const uploadImage = async (base64EncodedImage, id) => {
     try {
       console.log(id);
-      const response = await axios.post(
-        `http://localhost:3001/api/items/list/${id}`,
-        { image: base64EncodedImage }
-      );
+      const response = await axios.post(`/api/items/list/${id}`, {
+        image: base64EncodedImage,
+      });
       console.log(response.data);
     } catch (error) {
       console.log(error);

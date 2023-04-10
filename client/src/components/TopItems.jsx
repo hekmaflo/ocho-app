@@ -7,9 +7,7 @@ const TopItems = (props) => {
   useEffect(() => {
     const getItems = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3001/api/items/list/${props.listId}`
-        );
+        const response = await axios.get(`/api/items/list/${props.listId}`);
         setItems(response.data);
       } catch (error) {
         console.error(error);

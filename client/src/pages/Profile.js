@@ -11,9 +11,7 @@ const Profile = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3001/api/users/${id}`
-        );
+        const response = await axios.get(`/api/users/${id}`);
         setUser(response.data);
       } catch (error) {
         console.error(error);
